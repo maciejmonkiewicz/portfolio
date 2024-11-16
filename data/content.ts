@@ -29,15 +29,29 @@ export const contentData = [
     title: "Projects",
     items: [
       {
-        title: "Lorem ipsum",
+        title: "mAsystent at Firma Monkiewicz",
         subTitle: "",
         date: "2023",
-        description: "Lorem ipsum dolor set amet",
+        description:
+          "AI Chatbot with RAG & ability to connect to store menagement systems.",
         images: [
-          "/projects/1.png",
-          "/projects/2.png",
-          "/projects/3.png",
-          "/projects/4.png",
+          "/projects/masystent/1.png",
+          "/projects/masystent/2.png",
+          "/projects/masystent/3.png",
+          "/projects/masystent/4.png",
+        ],
+      },
+      {
+        title: "mByte at PGS50",
+        subTitle: "",
+        date: "2022",
+        description:
+          "Advanced internal system for assisgning & menaging tasks within the company it self.",
+        images: [
+          "/projects/mbyte/1.png",
+          "/projects/mbyte/2.png",
+          "/projects/mbyte/3.png",
+          "/projects/mbyte/4.png",
         ],
       },
     ],
