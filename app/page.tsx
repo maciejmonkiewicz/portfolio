@@ -2,6 +2,7 @@ import Image from "next/image";
 import { generalData } from "@/data/general";
 import { contentData } from "@/data/content";
 import type { Content } from "@/data/content";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 type ContentProps = Content;
 
@@ -25,6 +26,22 @@ const Content: React.FC<ContentProps> = ({ title, items }) => {
                   <p className="text-slate-600 dark:text-gray-400 mt-2">
                     {item.description}
                   </p>
+                ) : null}
+                {item.images ? (
+                  <ScrollArea className="mt-4">
+                    {item.images.map((image, index) => {
+                      return (
+                        <Image
+                          src={image}
+                          alt="Project"
+                          width={500}
+                          height={500}
+                          key={index}
+                          className="w-full"
+                        />
+                      );
+                    })}
+                  </ScrollArea>
                 ) : null}
               </div>
             </div>

@@ -7,7 +7,7 @@ export const contentData = [
         subTitle: "Olsztyn, Poland",
         date: "2022 - 2024",
         description:
-          "lorem ipsum dolor set amet consectetur adipiscing elit. lorem ipsum dolor set amet consectetur adipiscing elit.",
+          "During this time I developed and mentained internal tools for the company.",
       },
       {
         title: "Internship at WP.pl",
@@ -22,6 +22,23 @@ export const contentData = [
         date: "2022",
         description:
           "Amazing Internship, during which I learned a lot about web development.",
+      },
+    ],
+  },
+  {
+    title: "Projects",
+    items: [
+      {
+        title: "Lorem ipsum",
+        subTitle: "",
+        date: "2023",
+        description: "Lorem ipsum dolor set amet",
+        images: [
+          "/projects/1.png",
+          "/projects/2.png",
+          "/projects/3.png",
+          "/projects/4.png",
+        ],
       },
     ],
   },
@@ -41,10 +58,27 @@ export const contentData = [
     title: "Certifications",
     items: [
       {
-        title:
-          "Technician Programmer at Electronic & Telecomunication Technical School",
-        subTitle: "Olsztyn, Poland",
-        date: "2019 - 2024",
+        title: "C1 English Certificate from Cambridge",
+        subTitle: "",
+        date: "2024",
+        description: "",
+      },
+      {
+        title: "Programmer Technician ",
+        subTitle: "",
+        date: "2024",
+        description: "",
+      },
+      {
+        title: "B1 English Certificate from Cambridge",
+        subTitle: "",
+        date: "2023",
+        description: "",
+      },
+      {
+        title: "Penetration Testing & Cybersecurity from iTech",
+        subTitle: "",
+        date: "2022",
         description: "",
       },
     ],
@@ -58,6 +92,7 @@ export type Content = {
     subTitle: string;
     date: string;
     description: string;
+    images?: string[];
   }[];
 };
 
