@@ -6,9 +6,24 @@ import { contentData } from "@/data/content";
 import type { Content } from "@/data/content";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { useState, useEffect, useCallback } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Code2,
+  Eye,
+  HeartCrack,
+  Unplug,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { cn } from "@/lib/utils";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 type ContentProps = Content;
 
@@ -136,12 +151,12 @@ const Content: React.FC<ContentProps> = ({ title, items }) => {
                 <p className="text-neutral-600 dark:text-gray-400">
                   {item.subTitle}
                 </p>
-                {item.description ? (
+                {item.description && (
                   <p className="text-neutral-600 dark:text-gray-400 mt-2">
                     {item.description}
                   </p>
-                ) : null}
-                {item.images && item.images.length > 0 ? (
+                )}
+                {item.images && item.images.length > 0 && (
                   <ScrollArea className="mt-4 w-96 whitespace-nowrap rounded-md">
                     <div className="flex w-max space-x-4 p-4">
                       {item.images.map((image, imageIndex) => (
@@ -166,7 +181,68 @@ const Content: React.FC<ContentProps> = ({ title, items }) => {
                     </div>
                     <ScrollBar orientation="horizontal" className="mt-2" />
                   </ScrollArea>
-                ) : null}
+                )}
+
+                {item.isProject && (
+                  <div className="flex gap-2 items-center w-full justify-between">
+                    <TooltipProvider delayDuration={0}>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="secondary"
+                            size="default"
+                            className={cn(
+                              "mt-2 border dark:border-neutral-500 dark:text-neutral-300 text-neutral-600 border-neutral-300 w-full",
+                              !item.repoUrl && "blur-sm"
+                            )}
+                            onClick={() =>
+                              item.repoUrl &&
+                              window.open(item.repoUrl, "_blank")
+                            }
+                          >
+                            <Code2 className="mr-2 h-4 w-4" />
+                            GitHub
+                          </Button>
+                        </TooltipTrigger>
+                        {!item.repoUrl && (
+                          <TooltipContent>
+                            <p className="flex gap-1 items-center">
+                              Sorry, this project is not public{" "}
+                              <HeartCrack className="h-4 w-4 inline text-red-400" />
+                            </p>
+                          </TooltipContent>
+                        )}
+                      </Tooltip>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="secondary"
+                            size="default"
+                            className={cn(
+                              "mt-2 border dark:border-neutral-500 dark:text-neutral-300 text-neutral-600 border-neutral-300 w-full",
+                              !item.demoUrl && "blur-sm "
+                            )}
+                            onClick={() =>
+                              item.demoUrl &&
+                              window.open(item.demoUrl, "_blank")
+                            }
+                          >
+                            <Eye className="mr-2 h-4 w-4" />
+                            Live Demo
+                          </Button>
+                        </TooltipTrigger>
+                        {!item.demoUrl && (
+                          <TooltipContent>
+                            <p className="flex gap-1 items-center">
+                              Sorry, this project has no live demo{" "}
+                              <Unplug className="h-4 w-4 inline text-orange-900" />
+                            </p>
+                          </TooltipContent>
+                        )}
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
+                )}
               </div>
             </div>
           );
@@ -175,7 +251,7 @@ const Content: React.FC<ContentProps> = ({ title, items }) => {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 "
           onClick={handleOutsideClick}
         >
           <div

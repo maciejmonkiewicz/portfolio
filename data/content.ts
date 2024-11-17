@@ -34,6 +34,8 @@ export const contentData = [
         date: "2023",
         description:
           "AI Chatbot with RAG & ability to connect to store menagement systems.",
+        isProject: true,
+
         images: [
           "/projects/masystent/1.png",
           "/projects/masystent/2.png",
@@ -47,6 +49,7 @@ export const contentData = [
         date: "2022",
         description:
           "Advanced internal system for assisgning & menaging tasks within the company it self.",
+        isProject: true,
         images: [
           "/projects/mbyte/1.png",
           "/projects/mbyte/2.png",
@@ -107,6 +110,9 @@ export type Content = {
     date: string;
     description: string;
     images?: string[];
+    isProject?: boolean;
+    repoUrl?: string;
+    demoUrl?: string;
   }[];
 };
 
