@@ -235,7 +235,7 @@ const Content: React.FC<ContentProps> = ({ title, items }) => {
                           <TooltipContent>
                             <p className="flex gap-1 items-center">
                               Sorry, this project has no live demo{" "}
-                              <Unplug className="h-4 w-4 inline text-orange-900" />
+                              <Unplug className="h-4 w-4 inline text-orange-900 dark:text-orange-600" />
                             </p>
                           </TooltipContent>
                         )}
