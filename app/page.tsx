@@ -142,7 +142,10 @@ const Content: React.FC<ContentProps> = ({ title, items }) => {
       <div className="flex flex-col gap-6">
         {items.map((item, itemIndex) => {
           return (
-            <div className="flex" key={itemIndex}>
+            <div
+              className="flex flex-col sm:flex-row gap-2 sm:gap-0"
+              key={itemIndex}
+            >
               <div className="mr-8 max-w-[100px] w-full text-neutral-400 dark:text-neutral-400">
                 {item.date}
               </div>
@@ -157,8 +160,8 @@ const Content: React.FC<ContentProps> = ({ title, items }) => {
                   </p>
                 )}
                 {item.images && item.images.length > 0 && (
-                  <ScrollArea className="mt-4 w-96 whitespace-nowrap rounded-md">
-                    <div className="flex w-max space-x-4 p-4">
+                  <ScrollArea className="mt-4 w-full sm:max-w-96 whitespace-nowrap rounded-md">
+                    <div className="flex w-max space-x-4 py-4">
                       {item.images.map((image, imageIndex) => (
                         <button
                           key={imageIndex}
@@ -316,6 +319,29 @@ const Content: React.FC<ContentProps> = ({ title, items }) => {
 export default function Home() {
   return (
     <>
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <Image
+          src="/spheres/1.png"
+          alt="Sphere 1"
+          width={300}
+          height={300}
+          className="absolute top-[-5%] left-[-5%] w-[40%] h-auto max-w-[300px] opacity-50 sm:opacity-70"
+        />
+        <Image
+          src="/spheres/2.png"
+          alt="Sphere 2"
+          width={250}
+          height={250}
+          className="absolute bottom-[-10%] left-[5%] w-[35%] h-auto max-w-[250px] opacity-50 sm:opacity-70"
+        />
+        <Image
+          src="/spheres/3.png"
+          alt="Sphere 3"
+          width={200}
+          height={200}
+          className="absolute top-[40%] right-[15%] w-[30%] h-auto max-w-[200px] opacity-50 sm:opacity-70"
+        />
+      </div>
       <main className="max-w-xl mx-auto px-6 py-20 relative min-h-screen font-light">
         <section className="flex items-center">
           <Image
