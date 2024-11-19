@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: generalData.about,
     images: [
       {
-        url: "",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: `${generalData.name} - ${generalData.jobTitle}`,

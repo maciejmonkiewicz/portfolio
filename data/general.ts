@@ -5,6 +5,7 @@ export const generalData = {
   website: "https://monkiewicz.me",
   about:
     "Hey there! I'm Maciej, a fullstack developer based in Poland with huge passion to programming in general. I love building fullstack applications, so that i can enjoy best of both worlds :)",
+  resumePath: "/maciej-monkiewicz-resume.pdf",
   contacts: [
     {
       label: "Email",
