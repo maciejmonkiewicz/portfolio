@@ -12,7 +12,6 @@ export interface ContentItemProps {
   isProject?: boolean;
   repoUrl?: string;
   demoUrl?: string;
-  onImageClick?: (image: string, imageIndex: number) => void;
 }
 
 export const ContentItem = ({
@@ -24,7 +23,6 @@ export const ContentItem = ({
   isProject,
   repoUrl,
   demoUrl,
-  onImageClick,
 }: ContentItemProps) => (
   <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
     <div className="mr-8 max-w-[100px] w-full text-neutral-400 dark:text-neutral-400">
