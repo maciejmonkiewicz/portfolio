@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { generalData } from "@/data/general";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import { BackgroundSpheres } from "@/components/BackgroundSpheres";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,7 +37,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} dark:bg-neutral-800`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
+          <BackgroundSpheres />
+          <main className="max-w-xl mx-auto px-6 py-20 relative min-h-screen font-light">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

@@ -3,6 +3,12 @@ export const contentData = [
     title: "Work Experience",
     items: [
       {
+        title: "Junior Hacker at BillTech",
+        subTitle: "Remote",
+        date: "2024 - Present",
+        description: "",
+      },
+      {
         title: "Fullstack Developer at Monkiewicz Systemy Fiskalne",
         subTitle: "Olsztyn, Poland",
         date: "2022 - 2024",
