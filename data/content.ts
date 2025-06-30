@@ -6,7 +6,8 @@ export const contentData = [
         title: "Junior Hacker at BillTech",
         subTitle: "Remote",
         date: "2024 - Present",
-        description: "",
+        description:
+          "Collaborated with several leading Polish banks to develop a revolutionary bill payment infrastructure.",
       },
       {
         title: "Fullstack Developer at Monkiewicz Systemy Fiskalne",
