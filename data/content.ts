@@ -3,11 +3,11 @@ export const contentData = [
     title: "Work Experience",
     items: [
       {
-        title: "Junior Hacker at BillTech",
+        title: "Hacker at BillTech",
         subTitle: "Remote",
         date: "2024 - Present",
         description:
-          "Collaborated with several leading Polish banks to develop a revolutionary bill payment infrastructure.",
+          "Collaborated with top Polish finance companies to build a groundbreaking bill-payment platform.",
       },
       {
         title: "Fullstack Developer at Monkiewicz Systemy Fiskalne",
