@@ -8,13 +8,16 @@ import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const BASE_URL = new URL("https://monkiewicz.me");
+
 export const metadata: Metadata = {
+  metadataBase: BASE_URL,
   title: `${generalData.name} - ${generalData.jobTitle}`,
   description: generalData.about,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "",
+    url: BASE_URL,
     siteName: `${generalData.name} - ${generalData.jobTitle}`,
     title: `${generalData.name} - ${generalData.jobTitle}`,
     description: generalData.about,
