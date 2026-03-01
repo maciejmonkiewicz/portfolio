@@ -15,7 +15,7 @@ const NavigationControlsComponent = ({
   onNext,
   onPrevious,
 }: NavigationControlsProps) => (
-  <div className="flex items-center justify-center space-x-4 mt-4">
+  <div className="flex items-center justify-center space-x-4 mt-4" onClick={(e) => e.stopPropagation()}>
     <Button
       variant="ghost"
       size="icon"
