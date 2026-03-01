@@ -1,11 +1,16 @@
 import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+
 interface ProfileProps {
   avatar: string;
   name: string;
   jobTitle: string;
   website?: string;
 }
+
+const formatWebsiteUrl = (url: string): string => {
+  return url.replace(/(^\w+:|^)\/\//, "").replace("www.", "");
+};
 
 export const Profile = ({ avatar, name, jobTitle, website }: ProfileProps) => (
   <section className="flex items-center">
@@ -33,7 +38,7 @@ export const Profile = ({ avatar, name, jobTitle, website }: ProfileProps) => (
             rel="noopener noreferrer"
             className="hover:underline"
           >
-            {website.replace(/(^\w+:|^)\/\//, "").replace("www.", "")}
+            {formatWebsiteUrl(website)}
           </a>
         </span>
       )}

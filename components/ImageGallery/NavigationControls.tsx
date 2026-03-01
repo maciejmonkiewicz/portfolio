@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { memo } from "react";
 
 interface NavigationControlsProps {
   currentIndex: number;
@@ -8,7 +9,7 @@ interface NavigationControlsProps {
   onPrevious: () => void;
 }
 
-export const NavigationControls = ({
+const NavigationControlsComponent = ({
   currentIndex,
   total,
   onNext,
@@ -44,3 +45,7 @@ export const NavigationControls = ({
     </Button>
   </div>
 );
+
+NavigationControlsComponent.displayName = "NavigationControls";
+
+export const NavigationControls = memo(NavigationControlsComponent);

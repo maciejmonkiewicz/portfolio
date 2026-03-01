@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { ImageViewer } from "./ImageViewer";
 
 interface ImageGalleryProps {
@@ -12,25 +12,23 @@ interface ImageGalleryProps {
 export const ImageGallery = ({ images }: ImageGalleryProps) => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const handleImageClick = (_: string, imageIndex: number) => {
+  const handleImageClick = useCallback((imageIndex: number) => {
     setSelectedImage(imageIndex);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setSelectedImage(null);
-  };
+  }, []);
 
-  const handleNext = () => {
-    setSelectedImage((prev) =>
-      prev === null ? null : (prev + 1) % images.length
-    );
-  };
-
-  const handlePrevious = () => {
-    setSelectedImage((prev) =>
-      prev === null ? null : (prev - 1 + images.length) % images.length
-    );
-  };
+  const navigateImages = useCallback((direction: "next" | "previous") => {
+    setSelectedImage((prev) => {
+      if (prev === null) return null;
+      if (direction === "next") {
+        return (prev + 1) % images.length;
+      }
+      return (prev - 1 + images.length) % images.length;
+    });
+  }, [images.length]);
 
   return (
     <>
@@ -39,7 +37,7 @@ export const ImageGallery = ({ images }: ImageGalleryProps) => {
           {images.map((image, imageIndex) => (
             <button
               key={imageIndex}
-              onClick={() => handleImageClick(image, imageIndex)}
+              onClick={() => handleImageClick(imageIndex)}
               className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
             >
               <Image
@@ -61,8 +59,8 @@ export const ImageGallery = ({ images }: ImageGalleryProps) => {
           index={selectedImage}
           total={images.length}
           onClose={handleClose}
-          onNext={handleNext}
-          onPrevious={handlePrevious}
+          onNext={() => navigateImages("next")}
+          onPrevious={() => navigateImages("previous")}
         />
       )}
     </>

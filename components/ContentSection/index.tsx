@@ -1,8 +1,9 @@
-import { ContentItem, ContentItemProps } from "./ContentItem";
+import { ContentItem } from "./ContentItem";
+import { type ContentItem as ContentItemType } from "@/types/content";
 
 interface ContentSectionProps {
   title: string;
-  items: ContentItemProps[];
+  items: ContentItemType[];
 }
 
 export const ContentSection = ({ title, items }: ContentSectionProps) => {

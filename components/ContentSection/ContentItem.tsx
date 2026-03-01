@@ -2,17 +2,7 @@
 
 import { ImageGallery } from "../ImageGallery";
 import { ProjectLinks } from "../ProjectLinks";
-
-export interface ContentItemProps {
-  date: string;
-  title: string;
-  subTitle: string;
-  description?: string;
-  images?: string[];
-  isProject?: boolean;
-  repoUrl?: string;
-  demoUrl?: string;
-}
+import { type ContentItem as ContentItemType } from "@/types/content";
 
 export const ContentItem = ({
   date,
@@ -23,7 +13,7 @@ export const ContentItem = ({
   isProject,
   repoUrl,
   demoUrl,
-}: ContentItemProps) => (
+}: ContentItemType) => (
   <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
     <div className="mr-8 max-w-[100px] w-full text-neutral-400 dark:text-neutral-400">
       {date}

@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
+import { memo } from "react";
 
 interface CloseButtonProps {
   onClose: () => void;
 }
 
-export const CloseButton = ({ onClose }: CloseButtonProps) => (
+const CloseButtonComponent = ({ onClose }: CloseButtonProps) => (
   <Button
     variant="ghost"
     size="icon"
@@ -16,3 +17,7 @@ export const CloseButton = ({ onClose }: CloseButtonProps) => (
     <span className="sr-only">Close</span>
   </Button>
 );
+
+CloseButtonComponent.displayName = "CloseButton";
+
+export const CloseButton = memo(CloseButtonComponent);

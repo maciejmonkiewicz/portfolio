@@ -1,21 +1,24 @@
 import Image from "next/image";
+import { memo } from "react";
 
-export const BackgroundSpheres = () => (
+const SPHERES = [
+  {
+    src: "/spheres/1.png",
+    className: "top-[10%] md:top-[-5%] left-[-5%] w-[50%] max-w-[300px]",
+  },
+  {
+    src: "/spheres/2.png",
+    className: "bottom-[10%] left-[5%] w-[35%] max-w-[250px]",
+  },
+  {
+    src: "/spheres/3.png",
+    className: "top-[40%] right-[15%] w-[30%] max-w-[200px]",
+  },
+] as const;
+
+const BackgroundSpheresComponent = () => (
   <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-    {[
-      {
-        src: "/spheres/1.png",
-        className: "top-[10%] md:top-[-5%] left-[-5%] w-[50%] max-w-[300px]",
-      },
-      {
-        src: "/spheres/2.png",
-        className: "bottom-[10%] left-[5%] w-[35%] max-w-[250px]",
-      },
-      {
-        src: "/spheres/3.png",
-        className: "top-[40%] right-[15%] w-[30%] max-w-[200px]",
-      },
-    ].map((sphere, index) => (
+    {SPHERES.map((sphere, index) => (
       <Image
         key={index}
         src={sphere.src}
@@ -27,3 +30,7 @@ export const BackgroundSpheres = () => (
     ))}
   </div>
 );
+
+BackgroundSpheresComponent.displayName = "BackgroundSpheres";
+
+export const BackgroundSpheres = memo(BackgroundSpheresComponent);
