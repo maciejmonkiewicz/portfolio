@@ -7,7 +7,6 @@ import { CloseButton } from "./CloseButton";
 import { NavigationControls } from "./NavigationControls";
 import { Button } from "@/components/ui/button";
 import { ZoomIn, ZoomOut, RotateCw } from "lucide-react";
-import { toast } from "sonner";
 
 interface ImageViewerProps {
   url: string;
